@@ -22,11 +22,9 @@ public class JSONFile {
 
       data = (JSONArray) obj;
     } catch (FileNotFoundException e) {
-      e.printStackTrace();
-    } catch (IOException e) {
-      e.printStackTrace();
-    } catch (ParseException e) {
-      e.printStackTrace();
+      System.err.println("File not found: " + e.getMessage());
+    } catch (IOException | ParseException e) {
+      System.err.println("Error: " + e.getMessage());
     }
 
     return data;

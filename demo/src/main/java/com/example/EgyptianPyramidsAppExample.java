@@ -30,7 +30,7 @@ public class EgyptianPyramidsAppExample {
         System.out.print("Enter a command: ");
         command = menuGetCommand(scan);
 
-        executeCommand(scan, command);
+        executeCommand(command);
       }
     }
   }
@@ -107,8 +107,7 @@ public class EgyptianPyramidsAppExample {
 
   // get a integer from a json object, and parse it
   private Integer toInteger(JSONObject o, String key) {
-    Integer result = Integer.parseInt(o.get(key).toString());
-    return result;
+    return ((Number) o.get(key)).intValue();
   }
 
   // get first character from input
@@ -127,14 +126,14 @@ public class EgyptianPyramidsAppExample {
 
   // print all pharaohs
   private void printAllPharaoh() {
-    for (int i = 0; i < pharaohArray.length; i++) {
+    for (Pharaoh pharaoh : pharaohArray) {
       printMenuLine();
-      pharaohArray[i].print();
+      pharaoh.print();
       printMenuLine();
     }
   }
 
-  private Boolean executeCommand(Scanner scan, Character command) {
+  private Boolean executeCommand(Character command) {
     Boolean success = true;
 
     switch (command) {
@@ -163,15 +162,19 @@ public class EgyptianPyramidsAppExample {
     );
   }
 
-  // prints the menu
   public static void printMenu() {
-    printMenuLine();
     System.out.println("Nassef's Egyptian Pyramids App");
-    printMenuLine();
-    System.out.printf("Command\t\tDescription\n");
-    System.out.printf("-------\t\t---------------------------------------\n");
-    printMenuCommand('1', "List all the pharoahs");
+    System.out.println("-------------------------------------------------------------");
+    System.out.println("Command\t\tDescription");
+    System.out.println("-------\t\t-----------------------------------------------");
+    printMenuCommand('1', "List all the pharaohs");
+    printMenuCommand('2', "Displays a specific Egyptian pharaoh");
+    printMenuCommand('3', "List all the pyramids");
+    printMenuCommand('4', "Displays a specific pyramid");
+    printMenuCommand('5', "Displays a list of requested pyramids.");
     printMenuCommand('q', "Quit");
-    printMenuLine();
-  }
+    System.out.println("-------------------------------------------------------------");
 }
+
+  }
+
