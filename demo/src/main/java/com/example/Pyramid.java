@@ -7,6 +7,15 @@ public class Pyramid {
   protected String name;
   protected String[] contributors;
 
+  public int getId() {
+        return id;
+    }
+  public String getName() {
+        return name;
+    }
+  public String[] getContributors() {
+        return contributors;
+    }
   // constructor
   public Pyramid(
     Integer pyramidId,

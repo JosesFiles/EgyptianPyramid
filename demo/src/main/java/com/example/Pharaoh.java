@@ -2,7 +2,24 @@ package com.example;
 
 // pharoah class, that corresponds to the information in the json file
 public class Pharaoh {
+  public int getId() {
+    return id;
+  }
 
+  
+public String getName() {
+
+    return name;
+
+}
+
+
+
+public Integer getContribution() {
+
+    return contribution;
+
+}
   // using protected member values, so other classes in this package can have access
   protected Integer id;
   protected String name;
